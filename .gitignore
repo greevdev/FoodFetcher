@@ -1,0 +1,17 @@
+venv/
+
+.idea/
+.vscode/
+
+*.pyc
+
+*/settings/local.py
+
+db.sqlite3
+
+/static/
+
+/media/
+
+/.venv/
+/pip-wheel-metadata/
