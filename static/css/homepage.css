@@ -1,0 +1,124 @@
+body {
+    background-color: #1C1F22;
+    padding: 40px;
+}
+
+.logo {
+    display: flex;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.logo img {
+    height: 4.5rem;
+}
+
+.homepage-logo {
+    color: #E9ECEF;
+    font-weight: bolder;
+    font-size: 4rem;
+}
+
+.food-input {
+    margin-top: 5em;
+    display: flex;
+    justify-content: center;
+}
+
+.food-input-field {
+    background-color: #2E3338;
+    color: #E9ECEF;
+    border-color: #5C6670;
+    max-width: 50vw;
+}
+
+.food-input-field:focus {
+    background-color: #2E3338;
+    color: #E9ECEF;
+    border-color: #40916c;
+    box-shadow: 0 0 0 0.2rem #40916c;
+}
+
+.food-input-btn:hover {
+    background-color: #40916c;
+    color: #E9ECEF;
+}
+
+.calories-message {
+    color: #E9ECEF;
+    font-size: 3rem;
+    text-align: center;
+    margin-top: 1em;
+}
+
+.nutrients-activities-container {
+    display: flex;
+    justify-content: space-between;
+    min-width: 60vw;
+    background-color: #2E3338;
+    margin: 3em auto 0 auto;
+    border-radius: 0.5em;
+    padding: 2em;
+    -webkit-box-shadow: 0px 12px 27px 1px rgba(34,37,41,1);
+    -moz-box-shadow: 0px 12px 27px 1px rgba(34,37,41,1);
+    box-shadow: 0px 12px 27px 1px rgba(34,37,41,1);
+}
+
+.sub-title {
+    color: #E9ECEF;
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0.5em;
+}
+
+.nutritional-values {
+    border: 2px solid #1C1F22;
+    width: 45%;
+    border-radius: 0.5em;
+}
+
+.serving-size {
+    background-color: #1C1F22;
+    width: 100%;
+    color: #E9ECEF;
+    padding: 0.7em;
+    font-size: 1.2rem;
+}
+
+.nutrients {
+    padding: 0 1em;
+}
+
+.nutrients li {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0.75em;
+    border-bottom: 2px solid #6C757D;
+    width: 100%;
+}
+
+.nutrients li p, .nutrients li span {
+    color: #E9ECEF;
+    font-size: 1.1rem;
+}
+
+.activities .activity {
+    display: flex;
+    margin-top: 2em;
+}
+
+.activity-info {
+    margin-left: 1em;
+    border-bottom: 2px solid #6C757D;
+}
+
+.activity-info h4 {
+    color: #40916c;
+    font-weight: bold;
+}
+
+.activity-info p {
+    color: #ADB5BD;
+    font-weight: normal;
+    margin-top: 1em;
+}

@@ -1,10 +1,95 @@
+{% load static %}
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Food Fetcher</title>
+    {% load bootstrap5 %}
+    {% bootstrap_css %}
+    {% bootstrap_javascript %}
+    <link rel="stylesheet" href="{% static 'css/homepage.css' %}">
+    <link rel="icon" href="{% static 'images/pear.ico' %}">
 </head>
 <body>
-    <h1>homepage</h1>
+
+<div class="container">
+    <div class="logo">
+        <img src="{% static 'images/pear-logo.png' %}" alt="">
+        
+        <h2 class="homepage-logo">Food Fetcher<span style="color: #40916c">.</span></h2>
+    </div>
+
+    <div class="input-group food-input">
+        <input type="text" class="form-control food-input-field" placeholder="Search for Food Item">
+        <button class="btn btn-outline-secondary food-input-btn" type="button">Search</button>
+    </div>
+    
+    <h1 class="calories-message">Fish and chips has a total of <strong style="color: #40916c">109 calories</strong></h1>
+
+    <div class="nutrients-activities-container">
+        <div class="nutritional-values">
+            <h2 class="sub-title">Nutritional Values</h2>
+
+            <h4 class="serving-size">Serving size per 100 grams</h4>
+
+            <ul type="none" class="nutrients">
+                <li> <p>Protein:</p> <span>13.6 g</span></li>
+                <li> <p>Carbohydrates:</p> <span>43.6 g</span></li>
+                <li> <p>Sugar:</p> <span>1326 g</span></li>
+                <li> <p>Total fat:</p> <span>66.6 g</span></li>
+                <li> <p>Saturated fat:</p> <span>63.6 g</span></li>
+                <li> <p>Cholesterol:</p> <span>123 g</span></li>
+                <li> <p>Potassium:</p> <span>13.6 g</span></li>
+                <li> <p>Sodium:</p> <span>2.6 g</span></li>
+                <li> <p>Fiber content:</p> <span>143.6 g</span></li>
+            </ul>
+        </div>
+
+        <div class="activities-values">
+            <h2 class="sub-title">To burn 109 calories:</h2>
+
+            <div class="activities">
+                <div class="activity">
+                    <img src="{% static 'images/running.png' %}" alt="">
+
+                    <div class="activity-info">
+                        <h4>Running</h4>
+
+                        <p>You will have to run for 22 minutes</p>
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <img src="{% static 'images/weight-lifting.png' %}" alt="">
+
+                    <div class="activity-info">
+                        <h4>Weight Lifting</h4>
+
+                        <p>You will have to lift weights for 22 minutes</p>
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <img src="{% static 'images/walking.png' %}" alt="">
+
+                    <div class="activity-info">
+                        <h4>Walk</h4>
+
+                        <p>You will have to walk for 22 minutes</p>
+                    </div>
+                </div>
+
+                <div class="activity">
+                    <img src="{% static 'images/yoga.png' %}" alt="">
+
+                    <div class="activity-info">
+                        <h4>Power Yoga</h4>
+
+                        <p>You will have to do power yoga for 22 minutes</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 </body>
 </html>

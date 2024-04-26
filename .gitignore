@@ -9,8 +9,6 @@ venv/
 
 db.sqlite3
 
-/static/
-
 /media/
 
 /.venv/
