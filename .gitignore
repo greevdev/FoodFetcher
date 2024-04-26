@@ -13,3 +13,5 @@ db.sqlite3
 
 /.venv/
 /pip-wheel-metadata/
+
+.env
