@@ -26,6 +26,18 @@
         </div>
     </form>
 
+    {% if not api %}
+        <div style="
+        max-width: 50vw;
+        margin: 2em auto 0 auto;
+        background-color: #1C1F22;
+        border-color: #e5383b;
+        color: #e5383b"
+             class="alert alert-danger" role="alert">
+            Please enter a valid food item.
+        </div>
+    {% endif %}
+
     {% if api %}
     {% if api == "error" %}
         <div style="
@@ -36,6 +48,30 @@
         color: #e5383b"
              class="alert alert-danger" role="alert">
             Something went wrong. Please try again.
+        </div>
+    {% endif %}
+
+    {% if api.0.sodium_mg > 500 %}
+        <div style="
+        max-width: 50vw;
+        margin: 2em auto 0 auto;
+        background-color: #1C1F22;
+        border-color: #ffd100;
+        color: #ffd100"
+             class="alert alert-warning" role="alert">
+            This food contains a high amount of sodium. High sodium intake could cause dehydration and water retention.
+        </div>
+    {% endif %}
+
+    {% if api.0.sugar_g > 25 %}
+        <div style="
+        max-width: 50vw;
+        margin: 2em auto 0 auto;
+        background-color: #1C1F22;
+        border-color: #ffd100;
+        color: #ffd100"
+             class="alert alert-warning" role="alert">
+            This food contains a high amount of sugar. High sugar intake could cause insulin spikes and is the number 1 cause for obesity.
         </div>
     {% endif %}
 
@@ -53,9 +89,9 @@
                 <li> <p>Sugar:</p> <span>{{ api.0.sugar_g }} g</span></li>
                 <li> <p>Total fat:</p> <span>{{ api.0.fat_total_g }} g</span></li>
                 <li> <p>Saturated fat:</p> <span>{{ api.0.fat_saturated_g }} g</span></li>
-                <li> <p>Cholesterol:</p> <span>{{ api.0.cholesterol_mg }} g</span></li>
-                <li> <p>Potassium:</p> <span>{{ api.0.potassium_mg }} g</span></li>
-                <li> <p>Sodium:</p> <span>{{ api.0.sodium_mg }} g</span></li>
+                <li> <p>Cholesterol:</p> <span>{{ api.0.cholesterol_mg }} mg</span></li>
+                <li> <p>Potassium:</p> <span>{{ api.0.potassium_mg }} mg</span></li>
+                <li> <p>Sodium:</p> <span>{{ api.0.sodium_mg }} mg</span></li>
                 <li> <p>Fiber content:</p> <span>{{ api.0.fiber_g }} g</span></li>
             </ul>
         </div>
