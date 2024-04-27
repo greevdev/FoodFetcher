@@ -1,4 +1,4 @@
-{% load static %}
+{% load static %} {% load mathfilters %} {% load humanize %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -61,16 +61,16 @@
         </div>
 
         <div class="activities-values">
-            <h2 class="sub-title">To burn 109 calories:</h2>
+            <h2 class="sub-title">To burn {{ api.0.calories }} calories:</h2>
 
             <div class="activities">
                 <div class="activity">
                     <img src="{% static 'images/running.png' %}" alt="">
 
                     <div class="activity-info">
-                        <h4>Running</h4>
+                        <h4>Jogging</h4>
 
-                        <p>You will have to run for 22 minutes</p>
+                        <p>You would have to jog for {{ api.0.calories | div:563 | mul:60 | floatformat:0 }} minutes</p>
                     </div>
                 </div>
 
@@ -80,7 +80,7 @@
                     <div class="activity-info">
                         <h4>Weight Lifting</h4>
 
-                        <p>You will have to lift weights for 22 minutes</p>
+                        <p>You would have to lift weights for {{ api.0.calories | div:320 |mul:60 | floatformat:0 }} minutes</p>
                     </div>
                 </div>
 
@@ -90,7 +90,7 @@
                     <div class="activity-info">
                         <h4>Walk</h4>
 
-                        <p>You will have to walk for 22 minutes</p>
+                        <p>You would have to walk for {{ api.0.calories | div:286 | mul:60 | floatformat:0 }} minutes</p>
                     </div>
                 </div>
 
@@ -100,7 +100,7 @@
                     <div class="activity-info">
                         <h4>Power Yoga</h4>
 
-                        <p>You will have to do power yoga for 22 minutes</p>
+                        <p>You would have to do power yoga for {{ api.0.calories | div:270 | mul:60 | floatformat:0 }} minutes</p>
                     </div>
                 </div>
             </div>

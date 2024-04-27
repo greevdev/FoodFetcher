@@ -40,8 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.humanize',
     "FoodFetcher.calorie_counter.apps.CalorieCounterConfig",
     'bootstrap5',
+    'mathfilters'
 ]
 
 MIDDLEWARE = [
