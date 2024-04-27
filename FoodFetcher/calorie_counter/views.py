@@ -1,16 +1,21 @@
 from django.shortcuts import render
-import requests, os
+import requests, os, json
 
 
 def homepage(request):
-    query = 'cum'
-    api_url = f'https://api.api-ninjas.com/v1/nutrition?query={query}'
-    api_key = os.environ['API_KEY']
-    response = requests.get(api_url, headers={'X-Api-Key': api_key})
+    if request.method == "POST":
+        query = request.POST['query']
 
-    if response.status_code == requests.codes.ok:
-        print(response.text)
-    else:
-        print("Error:", response.status_code, response.text)
+        api_url = f'https://api.api-ninjas.com/v1/nutrition?query={query}'
+        api_key = os.environ['API_KEY']
+        response = requests.get(api_url, headers={'X-Api-Key': api_key})
 
-    return render(request=request, template_name='homepage.html')
+        try:
+            api = json.loads(response.content)
+        except Exception as e:
+            api = "error"
+            print(e)
+
+        return render(request=request, template_name='homepage.html', context={'api': api})
+
+    return render(request=request, template_name='homepage.html', context={'query': 'Enter a valid query'})

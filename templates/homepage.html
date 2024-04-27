@@ -1,6 +1,6 @@
 {% load static %}
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <title>Food Fetcher</title>
     {% load bootstrap5 %}
@@ -18,29 +18,45 @@
         <h2 class="homepage-logo">Food Fetcher<span style="color: #40916c">.</span></h2>
     </div>
 
-    <div class="input-group food-input">
-        <input type="text" class="form-control food-input-field" placeholder="Search for Food Item">
-        <button class="btn btn-outline-secondary food-input-btn" type="button">Search</button>
-    </div>
-    
-    <h1 class="calories-message">Fish and chips has a total of <strong style="color: #40916c">109 calories</strong></h1>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="input-group food-input">
+            <input type="text" name="query" class="form-control food-input-field" placeholder="Search for Food Item">
+            <button  class="btn btn-outline-secondary food-input-btn" type="submit">Search</button>
+        </div>
+    </form>
+
+    {% if api %}
+    {% if api == "error" %}
+        <div style="
+        max-width: 50vw;
+        margin: 2em auto 0 auto;
+        background-color: #1C1F22;
+        border-color: #e5383b;
+        color: #e5383b"
+             class="alert alert-danger" role="alert">
+            Something went wrong. Please try again.
+        </div>
+    {% endif %}
+
+    <h1 class="calories-message">{{ api.0.name|capfirst }} has a total of <strong style="color: #40916c">{{ api.0.calories }} calories</strong></h1>
 
     <div class="nutrients-activities-container">
         <div class="nutritional-values">
             <h2 class="sub-title">Nutritional Values</h2>
 
-            <h4 class="serving-size">Serving size per 100 grams</h4>
+            <h4 class="serving-size">Serving size per {{ api.0.serving_size_g|floatformat:0 }} grams</h4>
 
             <ul type="none" class="nutrients">
-                <li> <p>Protein:</p> <span>13.6 g</span></li>
-                <li> <p>Carbohydrates:</p> <span>43.6 g</span></li>
-                <li> <p>Sugar:</p> <span>1326 g</span></li>
-                <li> <p>Total fat:</p> <span>66.6 g</span></li>
-                <li> <p>Saturated fat:</p> <span>63.6 g</span></li>
-                <li> <p>Cholesterol:</p> <span>123 g</span></li>
-                <li> <p>Potassium:</p> <span>13.6 g</span></li>
-                <li> <p>Sodium:</p> <span>2.6 g</span></li>
-                <li> <p>Fiber content:</p> <span>143.6 g</span></li>
+                <li> <p>Protein:</p> <span>{{ api.0.protein_g }} g</span></li>
+                <li> <p>Carbohydrates:</p> <span>{{ api.0.carbohydrates_total_g }} g</span></li>
+                <li> <p>Sugar:</p> <span>{{ api.0.sugar_g }} g</span></li>
+                <li> <p>Total fat:</p> <span>{{ api.0.fat_total_g }} g</span></li>
+                <li> <p>Saturated fat:</p> <span>{{ api.0.fat_saturated_g }} g</span></li>
+                <li> <p>Cholesterol:</p> <span>{{ api.0.cholesterol_mg }} g</span></li>
+                <li> <p>Potassium:</p> <span>{{ api.0.potassium_mg }} g</span></li>
+                <li> <p>Sodium:</p> <span>{{ api.0.sodium_mg }} g</span></li>
+                <li> <p>Fiber content:</p> <span>{{ api.0.fiber_g }} g</span></li>
             </ul>
         </div>
 
@@ -90,6 +106,7 @@
             </div>
         </div>
     </div>
+    {% endif %}
 </div>
 </body>
 </html>
